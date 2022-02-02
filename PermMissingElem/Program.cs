@@ -13,9 +13,12 @@ namespace ObjectApp
         public static int solution(int[] A)
         {
             int n = A.Length + 1;
-            int sumOfArrayElements = (n * (1 + n)) / 2;
-            int missingValue = sumOfArrayElements - A.Sum();
-            return missingValue;
+            long sumOfArrayElements = ((long)n * ((long)n + 1)) / 2;
+            int sumValues = 0;
+            for (int i = 0; i < A.Length; i++)
+                sumValues += A[i];
+            long missingValue = sumOfArrayElements - sumValues;
+            return (int) missingValue;
         }
     }
 }
