@@ -2,22 +2,26 @@
 
 namespace ObjectApp
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            int[] A = new int[] {2,3,1,5};
-            Console.WriteLine(solution(A));
+            int[] arrayElements = new int[] {2,3,1,5};
+            Console.WriteLine(PermMissingElem(arrayElements));
         }
 
-        public static int solution(int[] A)
+        public static int PermMissingElem(int[] arrayElements)
         {
-            int n = A.Length + 1;
+            int n = arrayElements.Length + 1;
             long sumOfArrayElements = ((long)n * ((long)n + 1)) / 2;
             int sumValues = 0;
-            for (int i = 0; i < A.Length; i++)
-                sumValues += A[i];
+
+            for (int i = 0; i < arrayElements.Length; i++)
+            {
+                sumValues += arrayElements[i];
+            }
             long missingValue = sumOfArrayElements - sumValues;
+            
             return (int) missingValue;
         }
     }

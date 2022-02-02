@@ -5,11 +5,11 @@ namespace ObjectApp
 {
     class Solution
     {
-        public int solution(int[] A)
+        public int OddOccurrencesInArray(int[] arrayElements)
         {
-            int elementValue = A[0];
-            for (int i = 1; i < A.Length; i++)
-                elementValue = elementValue ^ A[i];
+            int elementValue = arrayElements[0];
+            for (int i = 1; i < arrayElements.Length; i++)
+                elementValue = elementValue ^ arrayElements[i];
             return elementValue;
         }
         
@@ -17,7 +17,7 @@ namespace ObjectApp
         {
             int[] A = {9, 3, 3, 3, 9, 7, 9};
             var S = new Solution();
-            int value = S.solution(A);
+            int value = S.OddOccurrencesInArray(A);
             Console.WriteLine(value);
         }
     }
