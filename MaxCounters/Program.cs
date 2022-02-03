@@ -12,7 +12,7 @@ namespace ObjectApp
             Console.WriteLine(MaxCounter(intNumber, arrayElements));
         }
 
-        public static int[] MaxCounter(int intNumber, int[] arrayElements)
+        /*public static int[] MaxCounter(int intNumber, int[] arrayElements)
         {
             int[] arrayCounters = new int[intNumber];
             int arrayElementsLength = arrayElements.Length;
@@ -37,6 +37,53 @@ namespace ObjectApp
                     }
                 }
             }
+
+            return arrayCounters;
+        }
+    }*/
+        
+        public static int[] MaxCounter(int intNumber, int[] arrayElements)
+        {
+            int[] arrayCounters = new int[intNumber];
+            
+            int minValue = 0;
+            int maxValue = 0;
+            int arrayElementsLength = arrayElements.Length;
+
+            for (int i = 0; i < arrayElementsLength; i++)
+            {
+                if (arrayElements[i] <= intNumber)
+                {
+                    if (arrayCounters[arrayElements[i] - 1] < minValue + 1)
+                    {
+                        arrayCounters[arrayElements[i] - 1] = minValue + 1;
+                    }
+
+                    else
+                    {
+                        arrayCounters[arrayElements[i] - 1]++;
+                    }
+
+                    if (arrayCounters[arrayElements[i] - 1] > maxValue)
+                    {
+                        maxValue = arrayCounters[arrayElements[i] - 1];
+                    }
+                }
+                
+                else
+                {
+                    minValue = maxValue;
+                }
+            }
+
+            for (int j = 0; j < intNumber; j++)
+            {
+                if (arrayCounters[j] < minValue)
+                {
+                    arrayCounters[j] = minValue;
+                }
+            }
+            
 
             return arrayCounters;
         }
